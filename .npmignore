@@ -1,5 +1,6 @@
 ._*
 src/
+tests/
 buildDocs/
 docs/
 docs_site/
@@ -8,3 +9,4 @@ node_modules/
 bun.lockb
 tsconfig.tsbuildinfo
 ./build.ts
+.env
