@@ -8,7 +8,7 @@ import { createObjectMapByKeyWithMiddleware } from "../../../utils/utils"
 import type { Identifier, ArrayNonEmptyIfConst } from "typeforge"
 
 import type { ApiMethod } from "../../apiGroup"
-import type { AssetAnimatedThumbnailData, AssetSize, AvatarsFullThumbnailsSize, BatchRequest, BatchResponseElement, BundleSize, DeveloperProductSize, GamesIconSize, GameThumbnailSize, GroupEmblemSize, OutfitSize, PlaceThumbnailSize, PrettifiedBatchThumbnailsData, PrettifiedGamesThumbnailsData, PrettifiedThumbnailsData, RawBatchThumbnailsData, RawGamesThumbnailsData, RawThumbnailsData, ThumbnailData, ThumbnailFormat, ThumbnailReturnPolicy, ThumbnailsMetadataData } from "./thumbnails.types"
+import type { AssetAnimatedThumbnailData, AssetSize, AvatarsFullThumbnailsSize, AvatarBustThumbnailsSize, AvatarHeadshotThumbnailsSize, BatchRequest, BatchResponseElement, BundleSize, DeveloperProductSize, GamesIconSize, GameThumbnailSize, GroupEmblemSize, OutfitSize, PlaceThumbnailSize, PrettifiedBatchThumbnailsData, PrettifiedGamesThumbnailsData, PrettifiedThumbnailsData, RawBatchThumbnailsData, RawGamesThumbnailsData, RawThumbnailsData, ThumbnailData, ThumbnailFormat, ThumbnailReturnPolicy, ThumbnailsMetadataData } from "./thumbnails.types"
 //////////////////////////////////////////////////////////////////////////////////
 
 
@@ -417,7 +417,7 @@ export const avatarsFullThumbnails = createApiMethod(async <UserId extends Ident
  */
 export const avatarsBustsThumbnails = createApiMethod(async <UserId extends Identifier>(
   { userIds, size = "420x420", format = "WebP", isCircular }:
-  { userIds: ArrayNonEmptyIfConst<UserId>, size?: AvatarsFullThumbnailsSize, format?: ThumbnailFormat, isCircular?: boolean }
+  { userIds: ArrayNonEmptyIfConst<UserId>, size?: AvatarBustThumbnailsSize, format?: ThumbnailFormat, isCircular?: boolean }
 ): ApiMethod<RawThumbnailsData<UserId>, PrettifiedThumbnailsData<UserId>> => ({
   method: "GET",
   path: `/v1/users/avatar-bust`,
@@ -444,7 +444,7 @@ export const avatarsBustsThumbnails = createApiMethod(async <UserId extends Iden
  */
 export const avatarsHeadshotsThumbnails = createApiMethod(async <UserId extends Identifier>(
   { userIds, size = "420x420", format = "WebP", isCircular }:
-  { userIds: ArrayNonEmptyIfConst<UserId>, size?: AvatarsFullThumbnailsSize, format?: ThumbnailFormat, isCircular?: boolean }
+  { userIds: ArrayNonEmptyIfConst<UserId>, size?: AvatarHeadshotThumbnailsSize, format?: ThumbnailFormat, isCircular?: boolean }
 ): ApiMethod<RawThumbnailsData<UserId>, PrettifiedThumbnailsData<UserId>> => ({
   method: "GET",
   path: `/v1/users/avatar-headshot`,
